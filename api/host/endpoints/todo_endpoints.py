@@ -23,3 +23,7 @@ class TodoEndpoints(EndpointsBase[TodoCreate, Todo]):
     def create(self, dto: TodoCreate) -> TodoResponse:
         result = super().create(dto)
         return result
+    
+    @router.get('/todos/{todo_id}')
+    def get_by_id(self, todo_id: int) -> TodoResponse:
+        return super().get_by_id(todo_id)

@@ -11,5 +11,5 @@ class TodoModel(ModelBase):
     id = Column(Integer, primary_key=True)
     description = Column(String, nullable=False)
     user_id = Column(Integer, ForeignKey('users.id'))
-    time_created = Column(DateTime(timezone=True), server_default=func.now())
+    time_created = Column(DateTime(timezone=False), server_default=func.now())
     user = relationship('UserModel', back_populates='todos')

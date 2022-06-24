@@ -1,5 +1,6 @@
 from api.domain.schemas.schema_base import SchemaBase
-
+from typing import Optional
+import datetime
 
 class TodoBase(SchemaBase):
     """your code goes here"""
@@ -12,6 +13,10 @@ class TodoCreate(TodoBase):
 
 
 class Todo(TodoBase):
+    id: Optional[int] = None
+    description: str = None
+    time_created: datetime.datetime = None
+
     class Config:
         orm_mode = True
 
